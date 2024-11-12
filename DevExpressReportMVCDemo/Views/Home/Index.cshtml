@@ -1,0 +1,24 @@
+﻿@* @{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+ *@
+
+@using DevExpress.AspNetCore
+ @using DevExpressReportMVCDemo.Reports
+
+ <!-- #Before Rich Text box editor-->
+@* <link rel="stylesheet" href="~/css/designer.part.bundle.css" />
+<link rel="stylesheet" href="~/css/ace/ace.bundle.css" /> 
+<script src="~/js/designer.part.bundle.js"></script>*@
+<!-- #endregion -->
+
+
+
+@(Html.DevExpress().ReportDesigner("reportDesigner")
+    .Height("1000px")
+        .Bind(new AllTables()))

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="23.2.6.0" Ref="0" ControlType="DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v23.2, Version=23.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Name="Report" DisplayName="Report1" PageWidth="850" PageHeight="1100" Version="23.2" Font="Arial, 9.75pt">
+  <Extensions>
+    <Item1 Ref="1" Key="DataSerializationExtension" Value="DevExpress.XtraReports.Web.ReportDesigner.DefaultDataSerializer" />
+  </Extensions>
+  <Bands>
+    <Item1 Ref="2" ControlType="TopMarginBand" Name="TopMargin">
+      <Controls>
+        <Item1 Ref="3" ControlType="XRLabel" Name="label1" Multiline="true" Text="Name" SizeF="100,23" LocationFloat="105.208336,42.708332" Padding="2,2,0,0,100" />
+      </Controls>
+    </Item1>
+    <Item2 Ref="4" ControlType="DetailBand" Name="Detail">
+      <Controls>
+        <Item1 Ref="5" ControlType="XRTable" Name="table1" SizeF="300,25" LocationFloat="175,18.75" Padding="2,2,0,0,100">
+          <Rows>
+            <Item1 Ref="6" ControlType="XRTableRow" Name="tableRow1" Weight="1">
+              <Cells>
+                <Item1 Ref="7" ControlType="XRTableCell" Name="tableCell1" Weight="1" Multiline="true" Text="tableCell1" />
+                <Item2 Ref="8" ControlType="XRTableCell" Name="tableCell2" Weight="1" Multiline="true" Text="tableCell2" />
+                <Item3 Ref="9" ControlType="XRTableCell" Name="tableCell3" Weight="1" Multiline="true" Text="tableCell3" />
+              </Cells>
+            </Item1>
+          </Rows>
+        </Item1>
+      </Controls>
+    </Item2>
+    <Item3 Ref="10" ControlType="BottomMarginBand" Name="BottomMargin" />
+  </Bands>
+</XtraReportsLayoutSerializer>

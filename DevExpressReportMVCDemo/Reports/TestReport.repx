@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="23.2.6.0" Ref="1" ControlType="DevExpressReportMVCDemo.Reports.TestReport, DevExpressReportMVCDemo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" Name="Report" PageWidth="850" PageHeight="1100" Version="23.2" DataMember="Categories" DataSource="#Ref-0" Font="Arial, 9.75pt">
+  <Bands>
+    <Item1 Ref="2" ControlType="TopMarginBand" Name="TopMargin" />
+    <Item2 Ref="3" ControlType="ReportHeaderBand" Name="ReportHeader" HeightF="60">
+      <Controls>
+        <Item1 Ref="4" ControlType="XRLabel" Name="label1" Text="Report Title 2" SizeF="650,24.19433" LocationFloat="0,0" StyleName="Title" />
+      </Controls>
+    </Item2>
+    <Item3 Ref="5" ControlType="GroupHeaderBand" Name="GroupHeader1" GroupUnion="WithFirstDetail" HeightF="28">
+      <Controls>
+        <Item1 Ref="6" ControlType="XRTable" Name="table1" SizeF="650,28" LocationFloat="0,0">
+          <Rows>
+            <Item1 Ref="7" ControlType="XRTableRow" Name="tableRow1" Weight="1">
+              <Cells>
+                <Item1 Ref="8" ControlType="XRTableCell" Name="tableCell1" Weight="0.18948333740234374" Text="Category ID" TextAlignment="MiddleRight" StyleName="DetailCaption1" Borders="None">
+                  <StylePriority Ref="9" UseBorders="false" UseTextAlignment="false" />
+                </Item1>
+                <Item2 Ref="10" ControlType="XRTableCell" Name="tableCell2" Weight="0.23722189096304086" Text="Category Name" StyleName="DetailCaption1" />
+                <Item3 Ref="11" ControlType="XRTableCell" Name="tableCell3" Weight="0.1863999469463642" Text="Description" StyleName="DetailCaption1" />
+                <Item4 Ref="12" ControlType="XRTableCell" Name="tableCell4" Weight="0.12793710561899038" Text="Picture" StyleName="DetailCaption1" />
+                <Item5 Ref="13" ControlType="XRTableCell" Name="tableCell5" Weight="0.1294788067157452" Text="Icon 17" StyleName="DetailCaption1" />
+                <Item6 Ref="14" ControlType="XRTableCell" Name="tableCell6" Weight="0.1294788067157452" Text="Icon 25" StyleName="DetailCaption1" />
+              </Cells>
+            </Item1>
+          </Rows>
+        </Item1>
+      </Controls>
+    </Item3>
+    <Item4 Ref="15" ControlType="DetailBand" Name="Detail" HeightF="25">
+      <Controls>
+        <Item1 Ref="16" ControlType="XRTable" Name="table2" SizeF="650,25" LocationFloat="0,0" OddStyleName="DetailData3_Odd">
+          <Rows>
+            <Item1 Ref="17" ControlType="XRTableRow" Name="tableRow2" Weight="11.5">
+              <Cells>
+                <Item1 Ref="18" ControlType="XRTableCell" Name="tableCell7" Weight="0.18948336087740383" TextAlignment="MiddleRight" StyleName="DetailData1" Borders="None">
+                  <ExpressionBindings>
+                    <Item1 Ref="19" EventName="BeforePrint" PropertyName="Text" Expression="[CategoryID]" />
+                  </ExpressionBindings>
+                  <StylePriority Ref="20" UseBorders="false" UseTextAlignment="false" />
+                </Item1>
+                <Item2 Ref="21" ControlType="XRTableCell" Name="tableCell8" Weight="0.23722191443810095" StyleName="DetailData1">
+                  <ExpressionBindings>
+                    <Item1 Ref="22" EventName="BeforePrint" PropertyName="Text" Expression="[CategoryName]" />
+                  </ExpressionBindings>
+                </Item2>
+                <Item3 Ref="23" ControlType="XRTableCell" Name="tableCell9" Weight="0.18639997042142428" StyleName="DetailData1">
+                  <ExpressionBindings>
+                    <Item1 Ref="24" EventName="BeforePrint" PropertyName="Text" Expression="[Description]" />
+                  </ExpressionBindings>
+                </Item3>
+                <Item4 Ref="25" ControlType="XRTableCell" Name="tableCell10" Weight="0.12793711735652044" StyleName="DetailData1">
+                  <Controls>
+                    <Item1 Ref="26" ControlType="XRPictureBox" Name="pictureBox1" Sizing="ZoomImage" AnchorVertical="Both" AnchorHorizontal="Both" SizeF="81.07579,25" LocationFloat="2.083333,0">
+                      <ExpressionBindings>
+                        <Item1 Ref="27" EventName="BeforePrint" PropertyName="ImageSource" Expression="[Picture]" />
+                      </ExpressionBindings>
+                    </Item1>
+                  </Controls>
+                </Item4>
+                <Item5 Ref="28" ControlType="XRTableCell" Name="tableCell11" Weight="0.12947881845327525" StyleName="DetailData1">
+                  <Controls>
+                    <Item1 Ref="29" ControlType="XRPictureBox" Name="pictureBox2" Sizing="ZoomImage" AnchorVertical="Both" AnchorHorizontal="Both" SizeF="82.0779,25" LocationFloat="2.083333,0">
+                      <ExpressionBindings>
+                        <Item1 Ref="30" EventName="BeforePrint" PropertyName="ImageSource" Expression="[Icon_17]" />
+                      </ExpressionBindings>
+                    </Item1>
+                  </Controls>
+                </Item5>
+                <Item6 Ref="31" ControlType="XRTableCell" Name="tableCell12" Weight="0.1294788536658654" StyleName="DetailData1">
+                  <Controls>
+                    <Item1 Ref="32" ControlType="XRPictureBox" Name="pictureBox3" Sizing="ZoomImage" AnchorVertical="Both" AnchorHorizontal="Both" SizeF="82.07792,25" LocationFloat="2.083333,0">
+                      <ExpressionBindings>
+                        <Item1 Ref="33" EventName="BeforePrint" PropertyName="ImageSource" Expression="[Icon_25]" />
+                      </ExpressionBindings>
+                    </Item1>
+                  </Controls>
+                </Item6>
+              </Cells>
+            </Item1>
+          </Rows>
+        </Item1>
+      </Controls>
+    </Item4>
+    <Item5 Ref="34" ControlType="BottomMarginBand" Name="BottomMargin">
+      <Controls>
+        <Item1 Ref="35" ControlType="XRPageInfo" Name="pageInfo1" PageInfo="DateTime" SizeF="325,23" LocationFloat="0,0" StyleName="PageInfo" />
+        <Item2 Ref="36" ControlType="XRPageInfo" Name="pageInfo2" TextFormatString="Page {0} of {1}" TextAlignment="TopRight" SizeF="325,23" LocationFloat="325,0" StyleName="PageInfo" />
+      </Controls>
+    </Item5>
+  </Bands>
+  <StyleSheet>
+    <Item1 Ref="37" Name="Title" BorderStyle="Inset" Padding="6,6,0,0,100" Font="Arial, 14.25pt" ForeColor="255,75,75,75" BackColor="Transparent" BorderColor="Black" Sides="None" StringFormat="Near;Near;0;None;Character;Default" BorderWidthSerializable="1" />
+    <Item2 Ref="38" Name="DetailCaption1" BorderStyle="Inset" Padding="6,6,0,0,100" Font="Arial, 8.25pt, style=Bold" ForeColor="White" BackColor="255,75,75,75" BorderColor="White" Sides="Left" StringFormat="Near;Center;0;None;Character;Default" TextAlignment="MiddleLeft" BorderWidthSerializable="2" />
+    <Item3 Ref="39" Name="DetailData1" BorderStyle="Inset" Padding="6,6,0,0,100" Font="Arial, 8.25pt" ForeColor="Black" BorderColor="Transparent" Sides="Left" StringFormat="Near;Center;0;None;Character;Default" TextAlignment="MiddleLeft" BorderWidthSerializable="2" />
+    <Item4 Ref="40" Name="DetailData3_Odd" BorderStyle="Inset" Padding="6,6,0,0,100" Font="Arial, 8.25pt" ForeColor="Black" BackColor="255,231,231,231" BorderColor="Transparent" Sides="None" StringFormat="Near;Center;0;None;Character;Default" TextAlignment="MiddleLeft" BorderWidthSerializable="1" />
+    <Item5 Ref="41" Name="PageInfo" BorderStyle="Inset" Padding="6,6,0,0,100" Font="Arial, 8.25pt, style=Bold" ForeColor="255,75,75,75" StringFormat="Near;Near;0;None;Character;Default" />
+  </StyleSheet>
+  <ComponentStorage>
+    <Item1 Ref="0" ObjectType="DevExpress.DataAccess.Sql.SqlDataSource,DevExpress.DataAccess.v23.2" Name="sqlDataSource1" Base64="PFNxbERhdGFTb3VyY2UgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxDb25uZWN0aW9uIE5hbWU9Im53aW5kIiBGcm9tQXBwQ29uZmlnPSJ0cnVlIiAvPjxRdWVyeSBUeXBlPSJTZWxlY3RRdWVyeSIgTmFtZT0iQ2F0ZWdvcmllcyI+PFRhYmxlcz48VGFibGUgTmFtZT0iQ2F0ZWdvcmllcyIgLz48L1RhYmxlcz48Q29sdW1ucz48Q29sdW1uIFRhYmxlPSJDYXRlZ29yaWVzIiBOYW1lPSJDYXRlZ29yeUlEIiAvPjxDb2x1bW4gVGFibGU9IkNhdGVnb3JpZXMiIE5hbWU9IkNhdGVnb3J5TmFtZSIgLz48Q29sdW1uIFRhYmxlPSJDYXRlZ29yaWVzIiBOYW1lPSJEZXNjcmlwdGlvbiIgLz48Q29sdW1uIFRhYmxlPSJDYXRlZ29yaWVzIiBOYW1lPSJQaWN0dXJlIiAvPjxDb2x1bW4gVGFibGU9IkNhdGVnb3JpZXMiIE5hbWU9Ikljb25fMTciIC8+PENvbHVtbiBUYWJsZT0iQ2F0ZWdvcmllcyIgTmFtZT0iSWNvbl8yNSIgLz48L0NvbHVtbnM+PC9RdWVyeT48UmVzdWx0U2NoZW1hPjxEYXRhU2V0IE5hbWU9InNxbERhdGFTb3VyY2UxIj48VmlldyBOYW1lPSJDYXRlZ29yaWVzIj48RmllbGQgTmFtZT0iQ2F0ZWdvcnlJRCIgVHlwZT0iSW50MzIiIC8+PEZpZWxkIE5hbWU9IkNhdGVnb3J5TmFtZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJEZXNjcmlwdGlvbiIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJQaWN0dXJlIiBUeXBlPSJCeXRlQXJyYXkiIC8+PEZpZWxkIE5hbWU9Ikljb25fMTciIFR5cGU9IkJ5dGVBcnJheSIgLz48RmllbGQgTmFtZT0iSWNvbl8yNSIgVHlwZT0iQnl0ZUFycmF5IiAvPjwvVmlldz48L0RhdGFTZXQ+PC9SZXN1bHRTY2hlbWE+PENvbm5lY3Rpb25PcHRpb25zIENsb3NlQ29ubmVjdGlvbj0idHJ1ZSIgLz48L1NxbERhdGFTb3VyY2U+" />
+  </ComponentStorage>
+</XtraReportsLayoutSerializer>
