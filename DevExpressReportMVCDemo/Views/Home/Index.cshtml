@@ -21,4 +21,7 @@
 
 @(Html.DevExpress().ReportDesigner("reportDesigner")
     .Height("1000px")
-        .Bind(new AllTables()))
+        .Bind(new NewSqlDBReport()))
+
+
+@(Html.DevExpress().WebDocumentViewer("DocumentViewer").Height("1000px").Bind(new NewSqlDBReport()))
