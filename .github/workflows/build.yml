@@ -10,7 +10,11 @@ jobs:
   build:
     name: Build and analyze
     runs-on: windows-latest
-    
+
+    defaults:
+        run:
+          working-directory: ./DevExpressReportMVCDemo
+        
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:
@@ -43,5 +47,5 @@ jobs:
         shell: powershell
         run: |
           ${{ runner.temp }}\scanner\dotnet-sonarscanner begin /k:"ShubhamG2908_devexpress-web-reporting_33cc1e54-6925-491a-bdeb-578fb5bc662a" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}"
-          dotnet build
+           dotnet build DevExpressReportMVCDemo.sln --no-restore --configuration Release
           ${{ runner.temp }}\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
