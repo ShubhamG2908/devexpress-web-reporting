@@ -1,51 +1,67 @@
-name: Build
+
+name: SonarQube Analysis
 
 on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
+permissions:
+  contents: read
+  pull-requests: read
 
 jobs:
-  build:
-    name: Build and analyze
-    runs-on: windows-latest
+  sonarqube:
+    name: SonarQube Analysis
+    runs-on: ubuntu-latest
 
     defaults:
-        run:
-          working-directory: ./DevExpressReportMVCDemo
-        
+      run:
+        working-directory: ./DevExpressReportMVCDemo
+
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      - name: Checkout Repository
+        uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-      - name: Set up JDK 21
-        uses: actions/setup-java@c1e323688fd81a25caa38c78aa6df2d33d3e20d9 # v4.8.0
+          fetch-depth: 0
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
         with:
-          java-version: 21
-          distribution: 'zulu' # Alternative distribution options are available.
-      - name: Cache SonarQube packages
-        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
-        with:
-          path: ${{ runner.temp }}\cache
-          key: ${{ runner.os }}-sonar
-          restore-keys: ${{ runner.os }}-sonar
-      - name: Cache SonarQube scanner
-        id: cache-sonar-scanner
-        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
-        with:
-          path: ${{ runner.temp }}\scanner
-          key: ${{ runner.os }}-sonar-scanner
-          restore-keys: ${{ runner.os }}-sonar-scanner
-      - name: Install SonarQube scanner
-        if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
-        shell: powershell
+          dotnet-version: '8.0.x'
+
+      - name: Install SonarScanner
         run: |
-          New-Item -Path ${{ runner.temp }}\scanner -ItemType Directory
-          dotnet tool update dotnet-sonarscanner --tool-path ${{ runner.temp }}\scanner
-      - name: Build and analyze
-        shell: powershell
+          dotnet tool install --global dotnet-sonarscanner
+          echo "$HOME/.dotnet/tools" >> $GITHUB_PATH
+
+      - name: Begin SonarQube Analysis
         run: |
-          ${{ runner.temp }}\scanner\dotnet-sonarscanner begin /k:"ShubhamG2908_devexpress-web-reporting_33cc1e54-6925-491a-bdeb-578fb5bc662a" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}"
-           dotnet build DevExpressReportMVCDemo.sln --no-restore --configuration Release
-          ${{ runner.temp }}\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+          dotnet sonarscanner begin \
+            /k:"ShubhamG2908_devexpress-web-reporting_33cc1e54-6925-491a-bdeb-578fb5bc662a" \
+            /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}" \
+            /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+
+      - name: Restore Dependencies
+        run: dotnet restore MyApplication.sln
+
+      - name: Build Solution
+        run: |
+          dotnet build DevExpressReportMVCDemo.sln \
+            --no-restore \
+            --configuration Release
+
+      - name: Run Unit Tests
+        run: |
+          dotnet test DevExpressReportMVCDemo.sln \
+            --no-build \
+            --configuration Release
+
+      - name: End SonarQube Analysis
+        if: always()
+        run: |
+          dotnet sonarscanner end \
+            /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
