@@ -46,7 +46,7 @@ jobs:
             /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
 
       - name: Restore Dependencies
-        run: dotnet restore MyApplication.sln
+        run: dotnet restore DevExpressReportMVCDemo.sln
 
       - name: Build Solution
         run: |
